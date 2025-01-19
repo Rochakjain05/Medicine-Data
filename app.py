@@ -10,7 +10,7 @@ CORS(app)
 
 # Load the dataset (Ensure 'medicine_data.csv' is in the correct directory)
 try:
-    dataset = pd.read_csv("api/medicine_data.csv")
+    dataset = pd.read_csv("medicine_data.csv")
     print("Dataset loaded successfully!")
 except Exception as e:
     print(f"Error loading dataset: {e}")
