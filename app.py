@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Import flask-cors
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ CORS(app)
 
 # Load the dataset (Ensure 'medicine_data.csv' is in the correct directory)
 try:
-    dataset = pd.read_csv("medicine_data.csv")
+    dataset = pd.read_csv("api/medicine_data.csv")
     print("Dataset loaded successfully!")
 except Exception as e:
     print(f"Error loading dataset: {e}")
