@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 import pandas as pd
+import os
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Load the dataset (Ensure 'medicine_data.csv' is in the correct directory)
 try:
@@ -62,5 +65,6 @@ def get_medicine_info():
             "details": str(e)
         }), 500
 
+# Ensure the app listens on the correct port for Render deployment
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5004)))
