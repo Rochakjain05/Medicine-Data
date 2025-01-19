@@ -1,11 +1,7 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
 import pandas as pd
 
 app = Flask(__name__)
-
-# Enable CORS for the app
-CORS(app)  # This will allow all domains to make requests to your API
 
 # Load the dataset (Ensure 'medicine_data.csv' is in the correct directory)
 try:
@@ -67,4 +63,4 @@ def get_medicine_info():
         }), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) 
