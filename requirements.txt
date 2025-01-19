@@ -1,5 +1,5 @@
 Flask==2.2.3
-Flask-Cors==3.1.1
+Flask-Cors==3.0.10
 pandas==1.5.3
 pytesseract==0.3.10
 Pillow==9.3.0
