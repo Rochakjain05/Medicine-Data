@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import flask-cors
+from flask_cors import CORS  # Import CORS
 import pandas as pd
-import os
 
 app = Flask(__name__)
 
-# Enable CORS for all domains (you can specify a domain if needed)
-CORS(app)
+# Enable CORS for the app
+CORS(app)  # This will allow all domains to make requests to your API
 
 # Load the dataset (Ensure 'medicine_data.csv' is in the correct directory)
 try:
@@ -19,6 +18,7 @@ except Exception as e:
 @app.route('/get_medicine_info', methods=['POST'])
 def get_medicine_info():
     try:
+        # Ensure dataset is loaded
         if dataset is None:
             return jsonify({
                 "error": "Dataset could not be loaded. Please check the file and try again."
